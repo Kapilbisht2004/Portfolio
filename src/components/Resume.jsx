@@ -15,11 +15,15 @@ const Resume = () => (
       data-aos-delay="100"
     >
       <div className="bg-white dark:bg-gray-800 rounded-xl p-6">
-        <iframe
-          src="/resume.pdf"
-          className="w-full h-[500px] rounded border"
-          title="Kapil's Resume"
-        ></iframe>
+
+        {/* ✅ Responsive Iframe */}
+        <div className="w-full aspect-[8/11] md:h-[500px] h-[400px] overflow-hidden">
+          <iframe
+            src="/resume.pdf"
+            className="w-full h-full rounded border"
+            title="Kapil's Resume"
+          ></iframe>
+        </div>
 
         {/* 🔽 Download Button */}
         <div className="flex justify-center">
@@ -34,8 +38,6 @@ const Resume = () => (
             data-aos-delay="200"
           >
             <span className="relative z-10">Download Resume</span>
-
-            {/* Background Fill */}
             <span className="absolute inset-[2px] rounded-xl bg-white dark:bg-gray-900 z-0"></span>
           </a>
         </div>
