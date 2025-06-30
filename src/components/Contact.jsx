@@ -1,8 +1,32 @@
-// src/components/Contact.jsx
 import { useState } from 'react';
 
 const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData(e.target);
+
+    try {
+      await fetch('https://formsubmit.co/ajax/bishtkapil06@gmail.com', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      setSubmitted(true);
+      setLoading(false);
+      e.target.reset();
+    } catch (err) {
+      console.error('Form submission error:', err);
+      setLoading(false);
+    }
+  };
 
   return (
     <section
@@ -10,19 +34,10 @@ const Contact = () => {
       className="min-h-screen bg-white dark:bg-gray-900 px-6 py-16 flex items-center justify-center"
     >
       <div className="max-w-6xl w-full grid md:grid-cols-2 gap-12 items-center min-h-[500px]">
-        
-        {/* 🔹 Left: Contact Form */}
         <div data-aos="fade-right">
           <h2 className="text-3xl font-bold mb-6 text-indigo-600">Get in Touch</h2>
 
-          <form
-            action="https://formsubmit.co/bishtkapil06@gmail.com"
-            method="POST"
-            className="flex flex-col gap-4"
-            onSubmit={() => setSubmitted(true)}
-          >
-            {/* Optional redirect */}
-            <input type="hidden" name="_next" value="https://kapilbisht.netlify.app/#contact" />
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <input type="hidden" name="_captcha" value="false" />
 
             <input
@@ -49,9 +64,10 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700 transition duration-300"
+              disabled={loading}
+              className="bg-indigo-600 text-white py-3 rounded-md hover:bg-indigo-700 transition duration-300 disabled:opacity-50"
             >
-              Send Message
+              {loading ? 'Sending...' : submitted ? 'Message Sent!' : 'Send Message'}
             </button>
 
             {submitted && (
@@ -65,7 +81,7 @@ const Contact = () => {
           </form>
         </div>
 
-        {/* 🔹 Right: Info Cards */}
+        {/* Right Side Info */}
         <div className="space-y-6" data-aos="fade-left">
           <div className="bg-white dark:bg-gray-800 p-5 rounded-xl border dark:border-gray-700 flex items-center gap-4">
             <img src="/gmail.png" alt="Email" className="w-8 h-8" />
@@ -74,7 +90,6 @@ const Contact = () => {
               <p className="font-medium text-gray-900 dark:text-white">bishtkapil06@gmail.com</p>
             </div>
           </div>
-
           <div className="bg-white dark:bg-gray-800 p-5 rounded-xl border dark:border-gray-700 flex items-center gap-4">
             <img src="/phone.png" alt="Phone" className="w-8 h-8" />
             <div>
@@ -82,7 +97,6 @@ const Contact = () => {
               <p className="font-medium text-gray-900 dark:text-white">+91 9675814416</p>
             </div>
           </div>
-
           <div className="bg-white dark:bg-gray-800 p-5 rounded-xl border dark:border-gray-700 flex items-center gap-4">
             <img src="/location.png" alt="Location" className="w-8 h-8" />
             <div>
