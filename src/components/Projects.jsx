@@ -2,7 +2,54 @@ import { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 
 const allProjects = [
-  // same as before...
+  {
+    title: 'Text-to-Speech & Speech-to-Text App',
+    description: 'A web-based tool for converting text to speech and vice versa.',
+    category: 'JavaScript',
+    tech: ['HTML', 'CSS', 'JavaScript', 'Speech API'],
+    github: 'https://github.com/Kapilbisht2004/Text-to-speech-and-speechh-to-text',
+    demo: '',
+  },
+  {
+    title: 'Brain Tumor Detection',
+    description: 'Deep learning model to detect brain tumors using MRI scans.',
+    category: 'Machine Learning',
+    tech: ['Python', 'CNN', 'TensorFlow', 'Keras'],
+    github: 'https://github.com/Kapilbisht2004/Brain-tumor-prediction',
+    demo: '',
+  },
+  {
+    title: 'C to Python Transpiler',
+    description: 'A GUI tool to convert C code into Python using PyQt5.',
+    category: 'Python',
+    tech: ['Python', 'C', 'PyQt5'],
+    github: 'https://github.com/Kapilbisht2004/Ct-o-Py-convertor',
+    demo: '',
+  },
+  {
+    title: 'Custom Linux Shell',
+    description: 'A GTK-based custom shell with command history and built-ins.',
+    category: 'C/GTK',
+    tech: ['C', 'GTK3', 'Linux'],
+    github: 'https://github.com/Kapilbisht2004/Linux_Shell',
+    demo: '',
+  },
+  {
+    title: 'Credit Card Fraud Detection',
+    description: 'ML Flask app that detects fraud in transaction data.',
+    category: 'Machine Learning',
+    tech: ['Flask', 'Pandas', 'Scikit-learn'],
+    github: 'https://github.com/Kapilbisht2004/Credit-card-fraud-detection',
+    demo: '',
+  },
+  {
+    title: 'React Portfolio Website',
+    description: 'Modern and animated personal portfolio built using React + Tailwind.',
+    category: 'JavaScript',
+    tech: ['React', 'Tailwind CSS', 'Vite'],
+    github: 'https://github.com/Kapilbisht2004/portfolio',
+    demo: 'https://kapilbisht2004.github.io/portfolio',
+  },
 ];
 
 const categories = ['All', 'JavaScript', 'Python', 'Machine Learning', 'C/GTK'];
@@ -64,9 +111,7 @@ const Projects = () => {
               {project.title}
             </h3>
 
-            <p className="text-gray-700 dark:text-gray-300 mb-3">
-              {project.description}
-            </p>
+            <p className="text-gray-700 dark:text-gray-300 mb-3">{project.description}</p>
 
             {/* Tech Stack */}
             <div className="flex flex-wrap justify-start gap-2 mb-4">
