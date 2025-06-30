@@ -16,14 +16,14 @@ const Contact = () => {
           <h2 className="text-3xl font-bold mb-6 text-indigo-600">Get in Touch</h2>
 
           <form
-            name="contact"
+            action="https://formsubmit.co/bishtkapil06@gmail.com"
             method="POST"
-            data-netlify="true"
             className="flex flex-col gap-4"
             onSubmit={() => setSubmitted(true)}
           >
-            {/* Hidden input required by Netlify */}
-            <input type="hidden" name="form-name" value="contact" />
+            {/* Optional redirect */}
+            <input type="hidden" name="_next" value="https://kapilbisht.netlify.app/#contact" />
+            <input type="hidden" name="_captcha" value="false" />
 
             <input
               type="text"
