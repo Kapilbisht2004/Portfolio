@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -18,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    <div className="font-sans bg-gray-900 text-white"> {/* ✅ No white flicker */}
+    <div className="font-sans bg-gray-900 text-white dark:bg-gray-900 dark:text-white">
       <Navbar />
       <main className="pt-16">
         <Hero />

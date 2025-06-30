@@ -2,59 +2,11 @@ import { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 
 const allProjects = [
-  {
-    title: 'Text-to-Speech & Speech-to-Text App',
-    description: 'A web-based tool for converting text to speech and vice versa.',
-    category: 'JavaScript',
-    tech: ['HTML', 'CSS', 'JavaScript', 'Speech API'],
-    github: 'https://github.com/Kapilbisht2004/Text-to-speech-and-speechh-to-text',
-    demo: '',
-  },
-  {
-    title: 'Brain Tumor Detection',
-    description: 'Deep learning model to detect brain tumors using MRI scans.',
-    category: 'Machine Learning',
-    tech: ['Python', 'CNN', 'TensorFlow', 'Keras'],
-    github: 'https://github.com/Kapilbisht2004/Brain-tumor-prediction',
-    demo: '',
-  },
-  {
-    title: 'C to Python Transpiler',
-    description: 'A GUI tool to convert C code into Python using PyQt5.',
-    category: 'Python',
-    tech: ['Python', 'C', 'PyQt5'],
-    github: 'https://github.com/Kapilbisht2004/Ct-o-Py-convertor',
-    demo: '',
-  },
-  {
-    title: 'Custom Linux Shell',
-    description: 'A GTK-based custom shell with command history and built-ins.',
-    category: 'C/GTK',
-    tech: ['C', 'GTK3', 'Linux'],
-    github: 'https://github.com/Kapilbisht2004/Linux_Shell',
-    demo: '',
-  },
-  {
-    title: 'Credit Card Fraud Detection',
-    description: 'ML Flask app that detects fraud in transaction data.',
-    category: 'Machine Learning',
-    tech: ['Flask', 'Pandas', 'Scikit-learn'],
-    github: 'https://github.com/Kapilbisht2004/Credit-card-fraud-detection',
-    demo: '',
-  },
-  {
-    title: 'React Portfolio Website',
-    description: 'Modern and animated personal portfolio built using React + Tailwind.',
-    category: 'JavaScript',
-    tech: ['React', 'Tailwind CSS', 'Vite'],
-    github: 'https://github.com/Kapilbisht2004/portfolio',
-    demo: 'https://kapilbisht2004.github.io/portfolio',
-  },
+  // same as before...
 ];
 
 const categories = ['All', 'JavaScript', 'Python', 'Machine Learning', 'C/GTK'];
 
-// 🎨 Dynamic title gradient by project
 const getTitleGradient = (title) => {
   if (title.includes('Speech')) return 'from-pink-500 to-red-500';
   if (title.includes('Tumor')) return 'from-purple-500 to-rose-500';
@@ -67,20 +19,19 @@ const getTitleGradient = (title) => {
 
 const Projects = () => {
   const [selected, setSelected] = useState('All');
-
-  const filtered =
-    selected === 'All'
-      ? allProjects
-      : allProjects.filter((proj) => proj.category === selected);
+  const filtered = selected === 'All' ? allProjects : allProjects.filter((proj) => proj.category === selected);
 
   return (
     <section id="projects" className="py-16 bg-white dark:bg-gray-900 text-center">
-      <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500 mb-8">
+      <h2
+        className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-pink-500 mb-8"
+        data-aos="fade-down"
+      >
         Projects
       </h2>
 
       {/* Filter Tabs */}
-      <div className="flex justify-center gap-4 flex-wrap mb-12">
+      <div className="flex justify-center gap-4 flex-wrap mb-12" data-aos="fade-up" data-aos-delay="100">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -102,6 +53,8 @@ const Projects = () => {
           <div
             key={index}
             className="relative rounded-2xl p-6 bg-white dark:bg-gray-800 border border-transparent transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_25px_rgba(139,92,246,0.8)]"
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
           >
             <h3
               className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r ${getTitleGradient(

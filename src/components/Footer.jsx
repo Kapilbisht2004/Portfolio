@@ -3,15 +3,21 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-white dark:bg-gray-900 pt-4 pb-5 mt-10">
+    <footer
+      className="bg-white dark:bg-gray-900 pt-4 pb-5 mt-10"
+      data-aos="fade-up"
+    >
       {/* 🔹 Only One Line */}
       <hr className="border-t border-gray-300 dark:border-gray-600 mb-4" />
 
       {/* 🔹 Name + Description + Icons */}
       <div className="text-center mb-6">
-        <h2 className="text-xl font-semibold text-gray-800 dark:text-white">Kapil</h2>
+        <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+          Kapil
+        </h2>
         <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-          Creating beautiful, functional websites and applications with a focus on user experience and clean code.
+          Creating beautiful, functional websites and applications with a focus
+          on user experience and clean code.
         </p>
 
         {/* 🔹 Glowing Social Icons */}
@@ -32,7 +38,10 @@ const Footer = () => {
           >
             <Linkedin className="w-6 h-6 text-blue-500 drop-shadow-[0_0_6px_rgba(59,130,246,0.8)]" />
           </a>
-          <a href="mailto:kapil.bisht123@gmail.com" className="hover:scale-110 transition">
+          <a
+            href="mailto:kapil.bisht123@gmail.com"
+            className="hover:scale-110 transition"
+          >
             <Mail className="w-6 h-6 text-red-500 drop-shadow-[0_0_6px_rgba(239,68,68,0.8)]" />
           </a>
         </div>

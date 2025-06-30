@@ -3,17 +3,20 @@
   <head>
     <!-- ✅ Force dark mode BEFORE React loads -->
     <script>
-      if (
-        localStorage.getItem('theme') === 'dark' ||
-        (!('theme' in localStorage) &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-        document.documentElement.classList.add('dark');
-      }
-    </script>
+  if (
+    localStorage.getItem('theme') === 'dark' ||
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+</script>
+
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src *; script-src 'self'; style-src 'self' 'unsafe-inline';">
     <meta name="description" content="Kapil Bisht's developer portfolio built with React and Tailwind CSS." />
     <meta name="keywords" content="Kapil Bisht, portfolio, web developer, React, Tailwind CSS" />
     <meta name="author" content="Kapil Bisht" />
